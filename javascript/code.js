@@ -5,7 +5,7 @@ var config = {
 
     type: Phaser.AUTO,
     height: 800,
-    width: 800,
+    width: 600,
     scene: { 
     preload: preload,
     create: create,
@@ -23,7 +23,7 @@ const game = new Phaser.Game(config)
 function preload () {
 
     this.load.image('sky','/assets/fondo1.png')
-    this.load.spritesheet ("personaje", );
+    this.load.spritesheet ('personaje','/assets/personaje.png', {frameWidth:120, frameHeight: 130});
 
 
 }
@@ -31,7 +31,8 @@ function preload () {
 
 function create ()  {
 
-    this.add.image(800,800, 'sky');
+    this.add.image(1773,800, 'sky');
+    this.add.image(400,200, 'personaje')
 
 
 }
