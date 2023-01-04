@@ -6,6 +6,16 @@ var config = {
     type: Phaser.AUTO,
     height: 800,
     width: 600,
+    physics : {
+        default : 'arcade',
+
+        arcade: {
+            gravity: {y :300},
+            debug: false
+
+        },
+
+    },
     scene: { 
     preload: preload,
     create: create,
@@ -23,7 +33,10 @@ const game = new Phaser.Game(config)
 function preload () {
 
     this.load.image('sky','/assets/fondo1.png')
-    this.load.spritesheet ('personaje','/assets/personaje.png', {frameWidth:120, frameHeight: 130});
+    this.load.image('plataforma', '/assets/plataforma.png' )
+    this.load.image('plataforma2', 'assets/plataforma2.png' )
+
+
 
 
 }
@@ -32,7 +45,11 @@ function preload () {
 function create ()  {
 
     this.add.image(1773,800, 'sky');
-    this.add.image(400,200, 'personaje')
+   
+plataform = this.physics.add.staticGroup ();
+
+plataform.create(200,600, 'plataforma').setScale(1.6);
+plataform.create(350, 250,'plataforma2').setScale(0.3);
 
 
 }
